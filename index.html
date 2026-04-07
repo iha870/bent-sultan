@@ -244,7 +244,9 @@
             left: 100%;
         }
 
+        /* Admin Toggle - Hidden by default */
         .admin-toggle {
+            display: none;
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -253,7 +255,6 @@
             width: 65px;
             height: 65px;
             border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -264,10 +265,87 @@
             border: 3px solid var(--white);
         }
 
+        .admin-toggle.visible {
+            display: flex;
+        }
+
         .admin-toggle:hover {
             transform: scale(1.1) rotate(90deg);
             background: var(--white);
             color: var(--gold);
+        }
+
+        /* Login Modal */
+        .login-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-modal.show {
+            display: flex;
+        }
+
+        .login-box {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .login-box h2 {
+            font-family: 'Amiri', serif;
+            color: var(--gold);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .login-box input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: var(--black);
+            color: var(--gold);
+        }
+
+        .login-hint {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: #666;
         }
 
         .admin-panel {
@@ -757,6 +835,10 @@
             .section-title {
                 font-size: 2.2rem;
             }
+
+            .login-box {
+                padding: 2rem;
+            }
         }
     </style>
 </head>
@@ -826,8 +908,20 @@
         </div>
     </footer>
 
-    <div class="admin-toggle" onclick="toggleAdmin()" title="Ajouter un produit">+</div>
+    <!-- Login Modal -->
+    <div class="login-modal" id="loginModal">
+        <div class="login-box">
+            <h2>🔐 Admin Access</h2>
+            <input type="password" id="adminPassword" placeholder="Entrez le mot de passe">
+            <button class="login-btn" onclick="checkPassword()">Se connecter</button>
+            <p class="login-hint">Mot de passe par défaut: <strong>bentsultan2026</strong></p>
+        </div>
+    </div>
 
+    <!-- Admin Toggle (Hidden until login) -->
+    <div class="admin-toggle" id="adminToggle" onclick="toggleAdmin()" title="Ajouter un produit">+</div>
+
+    <!-- Admin Panel -->
     <div class="admin-panel" id="adminPanel">
         <span class="admin-close" onclick="toggleAdmin()">×</span>
         <h2 data-key="add-product">Ajouter un Produit</h2>
@@ -871,6 +965,45 @@
     </div>
 
     <script>
+        // Configuration du mot de passe
+        const ADMIN_PASSWORD = 'bentsultan2026';
+        let isLoggedIn = false;
+
+        // Vérifier si déjà connecté (session)
+        if(sessionStorage.getItem('bentSultanAdmin') === 'true') {
+            isLoggedIn = true;
+            document.getElementById('adminToggle').classList.add('visible');
+        }
+
+        // Ouvrir le modal de connexion au chargement
+        window.onload = function() {
+            setTimeout(() => {
+                if(!isLoggedIn) {
+                    document.getElementById('loginModal').classList.add('show');
+                }
+            }, 1000);
+        };
+
+        // Vérifier le mot de passe
+        function checkPassword() {
+            const input = document.getElementById('adminPassword').value;
+            if(input === ADMIN_PASSWORD) {
+                isLoggedIn = true;
+                sessionStorage.setItem('bentSultanAdmin', 'true');
+                document.getElementById('loginModal').classList.remove('show');
+                document.getElementById('adminToggle').classList.add('visible');
+                alert('✅ Connexion réussie ! Vous pouvez maintenant gérer vos produits.');
+            } else {
+                alert('❌ Mot de passe incorrect !');
+                document.getElementById('adminPassword').value = '';
+            }
+        }
+
+        // Entrée avec la touche Entrée
+        document.getElementById('adminPassword')?.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') checkPassword();
+        });
+
         const CURRENCY = {
             code: 'DZD',
             symbol: 'د.ج',
@@ -1093,7 +1226,7 @@
                             <button class="btn-buy" onclick="buyProduct(${product.id})">
                                 <span>${translations[currentLang].buy || 'Acheter'}</span>
                             </button>
-                            <button class="btn-delete" onclick="deleteProduct(${product.id})" title="Supprimer">🗑</button>
+                            ${isLoggedIn ? `<button class="btn-delete" onclick="deleteProduct(${product.id})" title="Supprimer">🗑</button>` : ''}
                         </div>
                     </div>
                 `;
@@ -1102,11 +1235,20 @@
         }
 
         function toggleAdmin() {
+            if(!isLoggedIn) {
+                document.getElementById('loginModal').classList.add('show');
+                return;
+            }
             document.getElementById('adminPanel').classList.toggle('open');
         }
 
         function addProduct(e) {
             e.preventDefault();
+            
+            if(!isLoggedIn) {
+                alert('Veuillez vous connecter d\'abord !');
+                return;
+            }
             
             const newProduct = {
                 id: Date.now(),
@@ -1135,6 +1277,11 @@
         }
 
         function deleteProduct(id) {
+            if(!isLoggedIn) {
+                alert('Veuillez vous connecter d\'abord !');
+                return;
+            }
+            
             const confirmMessages = {
                 fr: 'Êtes-vous sûr de vouloir retirer ce produit de la collection ?',
                 en: 'Are you sure you want to remove this product from the collection?',
@@ -1169,3 +1316,5 @@
     </script>
 </body>
 </html>
+
+                

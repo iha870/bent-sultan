@@ -1,0 +1,1171 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بنت سلطان | Bent Sultan - Chaussures & Sacs de Luxe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Cairo:wght@400;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E8C1;
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --cream: #F9F6F0;
+            --rose: #E8D5D0;
+            --dark-gray: #2c2c2c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', 'Cairo', sans-serif;
+            background: var(--cream);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 0.5rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .logo-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .logo-french {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.9rem;
+            color: var(--white);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 0.2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 0.3rem;
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            font-size: 0.75rem;
+            transition: all 0.3s;
+            border-radius: 20px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .lang-btn:hover, .lang-btn.active {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .hero {
+            margin-top: 90px;
+            height: 92vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/49701f1eba38798b82e90c3de5b3abcc5a20b6d2.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.6) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease;
+            padding: 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 2px solid var(--gold);
+            padding: 0.5rem 2rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1.2rem 4rem;
+            background: var(--gold);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.4s;
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-btn:hover {
+            background: transparent;
+            color: var(--gold);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .admin-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--black);
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            z-index: 999;
+            font-size: 2rem;
+            transition: all 0.3s;
+            border: 3px solid var(--white);
+        }
+
+        .admin-toggle:hover {
+            transform: scale(1.1) rotate(90deg);
+            background: var(--white);
+            color: var(--gold);
+        }
+
+        .admin-panel {
+            position: fixed;
+            top: 0;
+            right: -450px;
+            width: 450px;
+            height: 100vh;
+            background: var(--white);
+            box-shadow: -10px 0 50px rgba(0,0,0,0.2);
+            z-index: 1001;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            padding: 2.5rem;
+        }
+
+        .admin-panel.open {
+            right: 0;
+        }
+
+        .admin-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--dark-gray);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .admin-close:hover {
+            background: var(--rose);
+            color: var(--black);
+        }
+
+        .admin-panel h2 {
+            font-family: 'Amiri', 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gold);
+            color: var(--black);
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            border-radius: 8px;
+            font-size: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--black);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .products-section {
+            padding: 6rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Amiri', 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--black);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid var(--black);
+            cursor: pointer;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.3s;
+            z-index: -1;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--black);
+            border-color: var(--gold);
+        }
+
+        .tab-btn.active::before, .tab-btn:hover::before {
+            left: 0;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            position: relative;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .product-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.08);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--gold);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 20px;
+        }
+
+        .product-info {
+            padding: 2rem;
+            position: relative;
+        }
+
+        .product-category {
+            color: var(--gold);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
+        }
+
+        .product-name {
+            font-family: 'Amiri', 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--black);
+            line-height: 1.3;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            direction: ltr;
+        }
+
+        .currency {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-buy {
+            flex: 1;
+            padding: 1rem;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            font-weight: 600;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-buy::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gold);
+            transition: left 0.3s;
+            z-index: 0;
+        }
+
+        .btn-buy span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-buy:hover {
+            color: var(--black);
+        }
+
+        .btn-buy:hover::before {
+            left: 0;
+        }
+
+        .btn-delete {
+            padding: 1rem 1.2rem;
+            background: #fff0f0;
+            color: #ff4444;
+            border: 2px solid #ff4444;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 8px;
+            font-size: 1.2rem;
+        }
+
+        .btn-delete:hover {
+            background: #ff4444;
+            color: white;
+        }
+
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 5rem 2rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-family: 'Amiri', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #aaa;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.8rem;
+            transition: all 0.3s;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 50%;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        [dir="rtl"] .header-container {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .nav-menu {
+            flex-direction: row-reverse;
+        }
+
+        [dir="rtl"] .admin-panel {
+            right: auto;
+            left: -450px;
+        }
+
+        [dir="rtl"] .admin-panel.open {
+            right: auto;
+            left: 0;
+        }
+
+        [dir="rtl"] .admin-toggle {
+            right: auto;
+            left: 30px;
+        }
+
+        [dir="rtl"] .product-badge {
+            left: auto;
+            right: 20px;
+        }
+
+        [dir="rtl"] .product-price {
+            direction: rtl;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .logo-arabic {
+                font-size: 1.5rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .admin-panel {
+                width: 100%;
+                right: -100%;
+            }
+            
+            [dir="rtl"] .admin-panel {
+                left: -100%;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <div class="logo-arabic">بنت سلطان</div>
+                <div class="logo-french">Bent Sultan</div>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" data-key="home">Accueil</a></li>
+                <li><a href="#products" data-key="products">Produits</a></li>
+                <li><a href="#about" data-key="about">À Propos</a></li>
+                <li><a href="#contact" data-key="contact">Contact</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="changeLang('fr')">FR</button>
+                <button class="lang-btn" onclick="changeLang('en')">EN</button>
+                <button class="lang-btn" onclick="changeLang('ar')">عربي</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge" data-key="luxury">Luxe & Élégance</div>
+            <h1 data-key="hero-title">بنت سلطان</h1>
+            <p class="hero-subtitle" data-key="hero-subtitle">Chaussures et Sacs de Luxe</p>
+            <p class="hero-description" data-key="hero-desc">Découvrez notre collection exclusive de chaussures et sacs haut de gamme pour la femme moderne et élégante</p>
+            <a href="#products" class="cta-btn" data-key="discover">Découvrir la Collection</a>
+        </div>
+    </section>
+
+    <section class="products-section" id="products">
+        <div class="section-header">
+            <h2 class="section-title" data-key="our-products">Nos Produits</h2>
+            <p class="section-subtitle" data-key="products-desc">Une sélection rigoureuse des meilleures pièces pour sublimer votre style</p>
+        </div>
+        
+        <div class="category-tabs">
+            <button class="tab-btn active" onclick="filterProducts('all')" data-key="all">Tous</button>
+            <button class="tab-btn" onclick="filterProducts('shoes')" data-key="shoes">Chaussures</button>
+            <button class="tab-btn" onclick="filterProducts('bags')" data-key="bags">Sacs</button>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">بنت سلطان</div>
+            <div class="footer-tagline">Bent Sultan - Luxe & Élégance</div>
+            <p data-key="footer-text">Votre destination royale pour la mode féminine de luxe</p>
+            
+            <div class="social-links">
+                <a href="#" title="Facebook">📘</a>
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Twitter">🐦</a>
+                <a href="#" title="WhatsApp">💬</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 بنت سلطان | Bent Sultan. <span data-key="rights">Tous droits réservés</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="admin-toggle" onclick="toggleAdmin()" title="Ajouter un produit">+</div>
+
+    <div class="admin-panel" id="adminPanel">
+        <span class="admin-close" onclick="toggleAdmin()">×</span>
+        <h2 data-key="add-product">Ajouter un Produit</h2>
+        
+        <form id="productForm" onsubmit="addProduct(event)">
+            <div class="form-group">
+                <label data-key="category">Catégorie</label>
+                <select id="category" required>
+                    <option value="shoes">Chaussures / Shoes / أحذية</option>
+                    <option value="bags">Sacs / Bags / حقائب</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>Nom (FR)</label>
+                <input type="text" id="nameFr" required placeholder="Ex: Escarpins Royal Rouge">
+            </div>
+            
+            <div class="form-group">
+                <label>Name (EN)</label>
+                <input type="text" id="nameEn" required placeholder="Ex: Royal Red Pumps">
+            </div>
+            
+            <div class="form-group">
+                <label>الاسم (عربي)</label>
+                <input type="text" id="nameAr" required placeholder="مثال: حذاء رويال أحمر">
+            </div>
+            
+            <div class="form-group">
+                <label data-key="price">Prix (DZD)</label>
+                <input type="number" id="price" required placeholder="25000" min="1">
+            </div>
+            
+            <div class="form-group">
+                <label data-key="image-url">URL de l'image</label>
+                <input type="url" id="imageUrl" required placeholder="https://example.com/image.jpg">
+            </div>
+            
+            <button type="submit" class="submit-btn" data-key="add">Ajouter le Produit</button>
+        </form>
+    </div>
+
+    <script>
+        const CURRENCY = {
+            code: 'DZD',
+            symbol: 'د.ج',
+            name: {
+                fr: 'Dinar Algérien',
+                en: 'Algerian Dinar',
+                ar: 'دينار جزائري'
+            }
+        };
+
+        const translations = {
+            fr: {
+                home: "Accueil",
+                products: "Produits",
+                about: "À Propos",
+                contact: "Contact",
+                luxury: "Luxe & Élégance",
+                "hero-title": "بنت سلطان",
+                "hero-subtitle": "Chaussures et Sacs de Luxe",
+                "hero-desc": "Découvrez notre collection exclusive de chaussures et sacs haut de gamme pour la femme moderne et élégante",
+                discover: "Découvrir la Collection",
+                "our-products": "Nos Produits",
+                "products-desc": "Une sélection rigoureuse des meilleures pièces pour sublimer votre style",
+                all: "Tous",
+                shoes: "Chaussures",
+                bags: "Sacs",
+                "footer-text": "Votre destination royale pour la mode féminine de luxe",
+                rights: "Tous droits réservés",
+                "add-product": "Ajouter un Produit",
+                category: "Catégorie",
+                price: "Prix (DZD)",
+                "image-url": "URL de l'image",
+                add: "Ajouter le Produit",
+                buy: "Acheter",
+                currency: "DZD"
+            },
+            en: {
+                home: "Home",
+                products: "Products",
+                about: "About",
+                contact: "Contact",
+                luxury: "Luxury & Elegance",
+                "hero-title": "Bent Sultan",
+                "hero-subtitle": "Luxury Shoes and Bags",
+                "hero-desc": "Discover our exclusive collection of high-end shoes and bags for the modern, elegant woman",
+                discover: "Discover Collection",
+                "our-products": "Our Products",
+                "products-desc": "A rigorous selection of the finest pieces to elevate your style",
+                all: "All",
+                shoes: "Shoes",
+                bags: "Bags",
+                "footer-text": "Your royal destination for women's luxury fashion",
+                rights: "All rights reserved",
+                "add-product": "Add Product",
+                category: "Category",
+                price: "Price (DZD)",
+                "image-url": "Image URL",
+                add: "Add Product",
+                buy: "Buy Now",
+                currency: "DZD"
+            },
+            ar: {
+                home: "الرئيسية",
+                products: "المنتجات",
+                about: "من نحن",
+                contact: "اتصل بنا",
+                luxury: "فخامة وأناقة",
+                "hero-title": "بنت سلطان",
+                "hero-subtitle": "أحذية وحقائب فاخرة",
+                "hero-desc": "اكتشف مجموعتنا الحصرية من الأحذية والحقائب الفاخرة للمرأة العصرية والأنيقة",
+                discover: "اكتشف المجموعة",
+                "our-products": "منتجاتنا",
+                "products-desc": "اختيار دقيق لأرقى القطع لتجميل أناقتك",
+                all: "الكل",
+                shoes: "أحذية",
+                bags: "حقائب",
+                "footer-text": "وجهتك الملكية لأزياء النساء الفاخرة",
+                rights: "جميع الحقوق محفوظة",
+                "add-product": "إضافة منتج",
+                category: "الفئة",
+                price: "السعر (د.ج)",
+                "image-url": "رابط الصورة",
+                add: "إضافة المنتج",
+                buy: "اشتري الآن",
+                currency: "د.ج"
+            }
+        };
+
+        let products = [
+            {
+                id: 1,
+                category: "shoes",
+                name: { fr: "Escarpins Royal Rouge", en: "Royal Red Pumps", ar: "حذاء رويال أحمر" },
+                price: 25000,
+                image: "https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/49701f1eba38798b82e90c3de5b3abcc5a20b6d2.jpg"
+            },
+            {
+                id: 2,
+                category: "bags",
+                name: { fr: "Sac à Main Majesté Noir", en: "Majesty Black Handbag", ar: "حقيبة ماجستي سوداء" },
+                price: 45000,
+                image: "https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/8f6068df497cb702c425092fc2a49c7ffed39053.jpg"
+            },
+            {
+                id: 3,
+                category: "shoes",
+                name: { fr: "Talons Impérial Blanc", en: "Imperial White Heels", ar: "كعب إمبريال أبيض" },
+                price: 22000,
+                image: "https://kimi-web-img.moonshot.cn/img/img.freepik.com/b132ad35ff58b1cf8dfba15a8c13a4ad82c7a971.jpg"
+            },
+            {
+                id: 4,
+                category: "bags",
+                name: { fr: "Pochette Princesse Bleu", en: "Princess Blue Clutch", ar: "حقيبة أميرة زرقاء" },
+                price: 32000,
+                image: "https://kimi-web-img.moonshot.cn/img/blogs.flixstudio.io/a21091d54e90f0691196debd64757ce67cf0bf1c.jpg"
+            },
+            {
+                id: 5,
+                category: "shoes",
+                name: { fr: "Escarpins Sultane Marine", en: "Sultana Navy Pumps", ar: "حذاء سلطانة بحري" },
+                price: 28000,
+                image: "https://kimi-web-img.moonshot.cn/img/thumbs.dreamstime.com/e287a864e0ab72fdc5998bd197946bca7cd75f76.jpg"
+            },
+            {
+                id: 6,
+                category: "bags",
+                name: { fr: "Sac Émeraude Royale", en: "Royal Emerald Bag", ar: "حقيبة زمردية ملكية" },
+                price: 58000,
+                image: "https://kimi-web-img.moonshot.cn/img/www.shutterstock.com/8be0244f1dc8b46fe8576f7673fedb0f5ea6d7e3.jpg"
+            }
+        ];
+
+        let currentLang = 'fr';
+        let currentFilter = 'all';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+        });
+
+        function formatPrice(price, lang) {
+            const symbol = lang === 'ar' ? 'د.ج' : 'DZD';
+            if (lang === 'ar') {
+                return `${price.toLocaleString('ar-DZ')} ${symbol}`;
+            }
+            return `${price.toLocaleString('fr-FR')} ${symbol}`;
+        }
+
+        function changeLang(lang) {
+            currentLang = lang;
+            
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+            
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase().includes(lang) || 
+                   (lang === 'ar' && btn.textContent.includes('عربي'))) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            document.querySelectorAll('[data-key]').forEach(el => {
+                const key = el.getAttribute('data-key');
+                if(translations[lang][key]) {
+                    el.textContent = translations[lang][key];
+                }
+            });
+            
+            if(lang === 'en') {
+                document.querySelector('.logo-french').textContent = 'Bent Sultan';
+            } else if(lang === 'ar') {
+                document.querySelector('.logo-french').textContent = 'بنت سلطان';
+            } else {
+                document.querySelector('.logo-french').textContent = 'Bent Sultan';
+            }
+            
+            renderProducts();
+        }
+
+        function filterProducts(category) {
+            currentFilter = category;
+            
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes(category)) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            renderProducts();
+        }
+
+        function renderProducts() {
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            
+            const filtered = currentFilter === 'all' 
+                ? products 
+                : products.filter(p => p.category === currentFilter);
+            
+            filtered.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                const priceDisplay = formatPrice(product.price, currentLang);
+                
+                card.innerHTML = `
+                    <div class="product-image-container">
+                        <img src="${product.image}" alt="${product.name[currentLang]}" class="product-image">
+                        <span class="product-badge">LUXE</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-category">${translations[currentLang][product.category]}</div>
+                        <h3 class="product-name">${product.name[currentLang]}</h3>
+                        <div class="product-price">
+                            ${priceDisplay}
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-buy" onclick="buyProduct(${product.id})">
+                                <span>${translations[currentLang].buy || 'Acheter'}</span>
+                            </button>
+                            <button class="btn-delete" onclick="deleteProduct(${product.id})" title="Supprimer">🗑</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function toggleAdmin() {
+            document.getElementById('adminPanel').classList.toggle('open');
+        }
+
+        function addProduct(e) {
+            e.preventDefault();
+            
+            const newProduct = {
+                id: Date.now(),
+                category: document.getElementById('category').value,
+                name: {
+                    fr: document.getElementById('nameFr').value,
+                    en: document.getElementById('nameEn').value,
+                    ar: document.getElementById('nameAr').value
+                },
+                price: parseInt(document.getElementById('price').value),
+                image: document.getElementById('imageUrl').value
+            };
+            
+            products.push(newProduct);
+            renderProducts();
+            
+            document.getElementById('productForm').reset();
+            toggleAdmin();
+            
+            const messages = {
+                fr: 'Produit ajouté avec succès à la collection بنت سلطان !',
+                en: 'Product successfully added to Bent Sultan collection!',
+                ar: 'تمت إضافة المنتج بنجاح إلى مجموعة بنت سلطان!'
+            };
+            alert(messages[currentLang]);
+        }
+
+        function deleteProduct(id) {
+            const confirmMessages = {
+                fr: 'Êtes-vous sûr de vouloir retirer ce produit de la collection ?',
+                en: 'Are you sure you want to remove this product from the collection?',
+                ar: 'هل أنت متأكد من إزالة هذا المنتج من المجموعة؟'
+            };
+            
+            if(confirm(confirmMessages[currentLang])) {
+                products = products.filter(p => p.id !== id);
+                renderProducts();
+            }
+        }
+
+        function buyProduct(id) {
+            const product = products.find(p => p.id === id);
+            const messages = {
+                fr: `✨ ${product.name.fr} ajouté à votre sélection royale !\nPrix: ${formatPrice(product.price, 'fr')}`,
+                en: `✨ ${product.name.en} added to your royal selection!\nPrice: ${formatPrice(product.price, 'en')}`,
+                ar: `✨ تمت إضافة ${product.name.ar} إلى اختياراتك الملكية!\nالسعر: ${formatPrice(product.price, 'ar')}`
+            };
+            alert(messages[currentLang]);
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
